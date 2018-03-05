@@ -18,8 +18,14 @@ Based on the format of the submission, my team decided to build separate models 
 
 The customized K Nearest Neighbor regression method works as follows: 
 
-1. Compare the traffic volumes in 6:00-8:00 and 15:00-17:00 (they are given in the test set) in the test set with that in the training set. Find k most similar days in the training set to the test set. Here the similarity is measured by Mean Absolute Percentage Error (MAPE), which is defined as follows:
+1. Compare the traffic volumes in 6:00-8:00 and 15:00-17:00 in the test set with that in the training set. Then find k most similar days in the training set. Here the similarity is measured by Mean Absolute Percentage Error (MAPE), which is defined as follows:
 
 // there should be a snapshot for MAPE
 
-2. Use th
+2. For a 20-minute time slot (e.g, 17:20-17:40) in the prediction period (8:00 - 10:00 and 17:00 - 19:00), predict the traffic volume using the average value of traffic volumes in the corresponding time slots in the k most similar days. For example, suppose to time slot 17:20-17:40 in day 1 in the prediction period, the k most similar days in the training period is day 1 to day 6, then the traffic volumes in time slot 17:20-17:40 in these 6 days will be averaged to be the prediction. The following shows the k most similar days for certain time slots:
+
+// there should be a snapshot for k most similar days.
+
+This k nearest neighbor regression has already had a pretty good performance. To optimize the result, I stacked the result to the 
+
+
